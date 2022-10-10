@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hovering Card Example</title>
+</head>
+<style>
+    *{
+            padding:0;
+            margin: 0;
+        }
+    body{
+            background-color: rgb(154, 130, 130);
+            width:100%;
+            font-family: sans-serif;
+            display:flex;
+            justify-content: center;
+            align-items:center;
+        }
+        .card-container{
+            width:300px;
+            height:380px ;
+            display: block;
+            margin: auto;
+          
+        }
+        
+        .card{
+          width:100%;
+          height:100%;
+          background-color: antiquewhite;
+          border:6px double black;
+          border-radius: 5px;
+          margin:50px;
+          position:relative;
+          overflow: hidden;
+          }
+
+       img{
+       width:200px;
+       height: 150px;
+       display: block;
+       margin:auto;
+       padding:10px;
+     }
+
+     .name{
+        margin: 20px;
+        background-color: rgb(141, 176, 206);
+        border:2px solid black;
+        padding-left:4px;
+        border-radius: 3px;
+        text-align: center;
+        text-shadow:0 3px #777;
+     }
+
+     .section-1,
+     .languages,
+     .skills{
+        margin: 15px;
+        background-color: aliceblue;
+        border:2px solid black;
+        padding-left:4px;
+        border-radius: 3px;
+        text-align: center;
+        background-color: aqua;
+        color:rgb(76, 0, 255);
+     }
+
+     .card:before,
+        .card:after{
+            position:absolute;
+            content:'';
+            width:100%;
+            height:100%;
+            z-index:3;
+        }
+        .card:before{
+            top:-110%;
+            background-color: #da8558;
+            transition:top .3s;
+        }
+        .card:after{
+            bottom:-110%;
+            background-color: #467fa0;
+            transition:bottom .3s;
+        }
+        .card:hover::before{
+            top:-50%;
+        }
+        .card:hover::after{
+            bottom:-50%;
+        }
+
+       .card-hover{
+        position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);
+            transition: z-index .3s;
+            z-index:1;
+        }
+      .card:hover .card-hover{
+       z-index: 10;
+}
+</style>
+<body>
+    <div class="card-container">
+        
+            <div class="card">   
+                <div class="card-hover">
+                <img src="images/person.jpg" alt="Person image">
+                <br>
+                <hr>
+                 <h1 class="name">Niharika T</h1>
+                 <div class="section-1">
+                     <div class="languages">Languages Known</div>
+                     <div class="skills">HTML5,CSS3,Js,C</div>
+                 </div>
+                 </div>
+        </div>
+      
+    </div>
+</body>
+</html>
